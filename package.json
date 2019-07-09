@@ -5,16 +5,26 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js"
+    "i-server": "npm i --prefix server",
+    "i-client": "npm i --prefix client",
+    "installer": "concurrently \"npm i-server\" \"npm i-client\"",
+    "server": "nodemon server/src/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncesar/nodejs-crud.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.6.4"
+  "bugs": {
+    "url": "https://github.com/ncesar/nodejs-crud/issues"
   },
+  "homepage": "https://github.com/ncesar/nodejs-crud#readme",
   "devDependencies": {
+    "concurrently": "^4.1.1",
     "nodemon": "^1.19.1"
   }
 }
